@@ -9,7 +9,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final firebaseApp = await Firebase.initializeApp(
-      // TODO(User) Configure Firebase with CLI
+      // TODO(User): Configure Firebase with CLI
       // options: DefaultFirebaseOptions.currentPlatform,
       );
 
