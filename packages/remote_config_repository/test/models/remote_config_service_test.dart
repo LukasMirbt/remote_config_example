@@ -12,11 +12,6 @@ class MockRemoteConfigInt extends Mock implements RemoteConfigValue {
   int asInt() => 1;
 }
 
-class MockRemoteConfigBool extends Mock implements RemoteConfigValue {
-  @override
-  bool asBool() => true;
-}
-
 void main() {
   group('RemoteConfigService', () {
     late FirebaseRemoteConfig firebaseRemoteConfig;
@@ -125,7 +120,6 @@ void main() {
         when(() => firebaseRemoteConfig.getAll()).thenAnswer(
           (_) => {
             'counter_value': MockRemoteConfigInt(),
-            'show_decrement_button': MockRemoteConfigBool(),
           },
         );
         final service = createSubject();
@@ -165,7 +159,6 @@ void main() {
         when(() => firebaseRemoteConfig.getAll()).thenAnswer(
           (_) => {
             'counter_value': MockRemoteConfigInt(),
-            'show_decrement_button': MockRemoteConfigBool(),
           },
         );
         final service = createSubject();

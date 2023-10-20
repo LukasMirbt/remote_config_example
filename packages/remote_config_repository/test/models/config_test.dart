@@ -20,7 +20,6 @@ void main() {
     test('can (de)serialize', () {
       final config = Config.fromRemoteConfig({
         'counter_value': MockRemoteConfigInt(),
-        'show_decrement_button': MockRemoteConfigBool(),
       });
 
       expect(

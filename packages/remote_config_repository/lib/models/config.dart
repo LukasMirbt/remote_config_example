@@ -10,9 +10,9 @@ class Config extends Equatable {
     required this.counterValue,
   });
 
-  factory Config.fromRemoteConfig(Map<String, RemoteConfigValue> json) {
+  factory Config.fromRemoteConfig(Map<String, RemoteConfigValue> map) {
     return Config(
-      counterValue: json['counter_value']?.asInt() ?? defaults.counterValue,
+      counterValue: map['counter_value']?.asInt() ?? defaults.counterValue,
     );
   }
 
