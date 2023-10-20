@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +19,20 @@ void main() async {
     firebaseApp,
     RemoteConfigService(FirebaseRemoteConfig.instance),
   );
+
+  try {
+    await remoteConfigRepository.initialize().timeout(
+          const Duration(
+            seconds: 5,
+          ),
+        );
+  } catch (error, stackTrace) {
+    log(
+      'Failed to initialize remote config',
+      error: error,
+      stackTrace: stackTrace,
+    );
+  }
 
   runApp(
     App(
